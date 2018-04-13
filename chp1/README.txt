@@ -33,3 +33,26 @@ PSUEDOCODE:
 	Display "Tip: $" + tip
 	Display "Total: $" + total
  End
+
+TEST DESIGNS:
+	Test 1:
+	  INPUT > Bill Amount: 10; Tip Rate: 15; 
+	  EXPECTED RESULTS >
+		Tip: $1.50
+		Total: $11.50
+	Test 2:
+	  INPUT > Bill Amount: 10.50; Tip Rate: 12.25; 
+	  EXPECTED RESULTS >
+		Tip: $1.29
+		Total: $11.79
+	Test 3:
+	  INPUT > Bill Amount: AAAAA.50; Tip Rate: 12.25; 
+	  EXPECTED RESULTS >
+		Tip: ERROR
+		Total: ERROR
+	Test 4:
+	  INPUT > Bill Amount: $$$; Tip Rate: $$$$; 
+	  EXPECTED RESULTS >
+		Tip: ERROR
+		Total: ERROR
+
