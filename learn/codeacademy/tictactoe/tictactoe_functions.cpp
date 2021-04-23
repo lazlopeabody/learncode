@@ -30,3 +30,24 @@ char board(char grid[][3]) {
     }
     return 0;
 }
+
+char player_choice(int choice, char grid[][3], char player){
+
+    switch (choice)
+    {
+    case 1:
+        grid[0][0] = player; 
+            break;
+    case 2:
+        grid[0][1] = player; 
+        break;
+    case 3:
+        grid[0][2] = player; 
+        break;
+
+    default:
+        break;
+    }
+
+    return 0;
+}
