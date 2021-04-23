@@ -1,47 +1,36 @@
 #include <iostream>
 #include "tictactoe_functions.hpp"
-using namespace std;
+
 
 int main() { 
 
-    char player1 = 'X';
-    char player2 = 'O';
-    int choice1, choice2; 
+    char player1, player2;
+    int choice; 
+    // reference this and access as pointer; maybe move grid into function. 
     char grid[3][3] = { {'1', '2', '3'}, {'4', '5', '6'}, {'7', '8', '9'} };
     bool endgame = false;
 
-    while (endgame != true)
-    {
-        cout << "Player 1 select: ";
-        cin >> choice1;
-
-        while (choice1 != choice2) {
-                player_choice(choice1, grid, player1);
-                break;
-            if (choice1 == choice2) {
-                cout << "That block is taken. Player 1 select: ";
-                cin >> choice1;
-            }
-        }
-
-        board(grid);
-
-        cout << "Player 2 select: ";
-        cin >> choice2;
-
-        while (choice2 != choice1) {
-            player_choice(choice2, grid, player2); 
-            break;
-            if (choice2 == choice1)
-                cout << "That block is taken. Player 2 select: ";
-                cin >> choice2;
-        }
-        board(grid); 
-        endgame = true;
+    // Select X or O; want to put this into a function need to return 2 variables or...
+    std::cout << "Select X or O\n"; 
+    std::cin >> player1; 
+    if (player1 == 'X') {
+        player2 = 'O';
     }
+    else { player2 = 'X';}
 
-    if (grid[0][0] == 'X') {
-        cout << "Winner!\n";
+    while (choice != '\0') {
+        // First Player Go 
+        std::cout << "Player select quadrant: ";
+        std::cin >> choice;
+
+        player_choice(player1, choice, grid);
+
+        if (check_board(choice, grid) == true){
+            std::cout << "Select your qaud again? ";
+            std::cin >> choice; 
+        }
+        else 
+            board(grid);
     }
 
     return 0;
