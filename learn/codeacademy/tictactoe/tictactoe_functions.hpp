@@ -2,9 +2,9 @@
 using namespace std;
 
 // Declare functions
-char board(char grid[][3]);
+char board(char grid[][3]); //print the board
+int userInput(); //function for userinput, return 
+char chngPlayer(char player);
 
-char player_choice(char player, int choice, char grid[][3]); 
-bool check_board(int choice, char grid[][3]);
-
-//char select_xo(char player1, char player2);
+void mark_board(int choice, char grid[][3]); 
+void (*check_choice)(int choice, char grid[][3]);
