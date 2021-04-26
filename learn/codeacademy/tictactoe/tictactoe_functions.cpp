@@ -30,6 +30,7 @@ char board(char grid[][3]) {
     }
     return 0;
 }
+
 // parameters are the choice of user, the fucntion that returns player type(X, O), 
 // and the grid to be modified by player type. 
 void mark_board(int choice, char grid[][3]) 
@@ -71,51 +72,43 @@ void mark_board(int choice, char grid[][3])
     }
 }
 
-// youtube.com video reference for finding slot of player choice
-void check_choice(int choice, char grid[][3]) {
-    
-    int row = (choice / 3);
-    int col; 
-    
-    if (choice % 3 == 0) {
-        row = row - 0;
-        col = 2;
-    }
-    else {
-        col = (choice % 3) - 1;
-    }
-    
-}
-
+// function is designed to ask user for choice and return this choice
 int userInput() {
+
         int choice;
         std::cout << "Player select your quadrant: " << endl;
         std::cin >> choice;
 
         return choice;
+        
     }
 
+// function is designed to change the player, default is X first. 
 void chngPlayer(char player) {
 
-        if (player == 'X') {
-            player = 'O';
+    if (player == 'X') {
+        player = 'O';
         }
-        else 
-            player = 'X';
+    else 
+        player = 'X';
 
 }
 
-/*
-int check_board(){
-// seperate function
-    do {
-        if (grid[row][col] = 'X') {
-            cout << "Sorry, quad already filled. Select again.\n";
-            cin >> choice;
+void checkUserChoice(int choice, char grid[][3]) {
+
+    int i, j;
+    for (i=0; i < 2; i++) {
+
+        for (j=0; j < 2; j++) {
+
+            if (choice == grid[i][j]) {
+            // ask the user to change the choice again
+                userInput();
+                break;
+            }
+
+            else
+                break;
         }
-        else
-            break;
-    } while (choice != choice)
-
-
-} */
+    }
+}
