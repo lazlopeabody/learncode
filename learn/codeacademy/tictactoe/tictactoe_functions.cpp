@@ -73,15 +73,13 @@ void mark_board(int choice, char grid[][3])
 }
 
 // function is designed to ask user for choice and return this choice
-int userInput() {
+int userInput(int choice) {
+    cout << "Please enter your Grid Number: " << endl;
+    cin >> choice;
 
-        int choice;
-        std::cout << "Player select your quadrant: " << endl;
-        std::cin >> choice;
+    return choice;
+}
 
-        return choice;
-        
-    }
 
 // function is designed to change the player, default is X first. 
 void chngPlayer(char player) {
@@ -103,7 +101,7 @@ void checkUserChoice(int choice, char grid[][3]) {
 
             if (choice == grid[i][j]) {
             // ask the user to change the choice again
-                userInput();
+                userInput(choice);
                 break;
             }
 

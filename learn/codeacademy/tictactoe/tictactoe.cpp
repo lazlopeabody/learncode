@@ -13,11 +13,9 @@ int main() {
 
     while (endgame < 8) {
 
-        cout << "Provide Input" << endl;
-        cin >> choice;
-        cout << choice << endl;
-
-        while (choice == 1) {
+        choice = userInput(choice);
+        
+        while (choice != 0) {
 
             if (grid[0][0] == 'X' || grid[0][0] == 'O') {
                 cout << "Quad Set, Try Input Again." << endl;
