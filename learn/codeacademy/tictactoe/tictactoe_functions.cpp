@@ -4,15 +4,9 @@ using namespace std;
 // print board, changes to array are made directly to array. This just prints what is in array. 
 char board(char grid[][3]) {
 
-    int r = 3;
-    int c = 3;
-
-    for (int i = 0; i < r; ++i) {
-        
-        for (int j = 0; j < c; ++j) {
-        
+    for (int i = 0; i < 3; ++i) {
+        for (int j = 0; j < 3; ++j) {
             std::cout << " " << grid[i][j];
-        
             if (j != 2) {
                 std::cout << " | "; 
             }
@@ -31,82 +25,142 @@ char board(char grid[][3]) {
     return 0;
 }
 
-// parameters are the choice of user, the fucntion that returns player type(X, O), 
-// and the grid to be modified by player type. 
-void mark_board(int choice, char grid[][3]) 
+// function checks if qaudrant is taken, if not will set the qaudtrant
+// parameters are the player symbol, player choice,  
+// and the tictactoe array 
+bool gridCheck(char player, int choice, char grid[][3]) 
 {
 
     switch (choice)
     {
     case 1:
-        grid[0][0] = 'X';
-        break;
-
+        if (grid[0][0] == 'X' || grid[0][0] == 'O') {
+            cout << "The QUAD is taken. Input your choice again." << endl;
+            break;
+        }
+        else {
+            grid[0][0] = player;
+            return true;
+        }
     case 2:
-        grid[0][1] = 'X';
-        break;
+        if (grid[0][1] == 'X' || grid[0][1] == 'O') {
+            cout << "The QUAD is taken. Input your choice again." << endl;
+            break;
+        }
+        else {
+            grid[0][1] = player; 
+            return true;
+        } 
     case 3:
-        grid[0][2] = 'X';
-        break;
+        if (grid[0][2] == 'X' || grid[0][2] == 'O') {
+            cout << "The QUAD is taken. Input your choice again." << endl;
+            break;
+        }
+        else {
+            grid[0][2] = player; 
+            return true;
+        }
     case 4:
-        grid[1][0] = 'X';
-        break;
+        if (grid[1][0] == 'X' || grid[1][0] == 'O') {
+            cout << "The QUAD is taken. Input your choice again." << endl;
+            break;
+        }
+        else {
+            grid[1][0] = player; 
+            return true; 
+        }
     case 5:
-        grid[1][1] = 'X';
-        break;
+        if (grid[1][1] == 'X' || grid[1][1] == 'O') {
+            cout << "The QUAD is taken. Input your choice again." << endl;
+            break;
+        }
+        else {
+            grid[1][1] = player; 
+            return true; 
+        }
     case 6:
-        grid[1][2] = 'X';
-        break;
+        if (grid[1][2] == 'X' || grid[1][2] == 'O') {
+            cout << "The QUAD is taken. Input your choice again." << endl;
+            break;
+        }
+        else {
+            grid[1][2] = player; 
+            return true;
+        }
     case 7:
-        grid[2][0] = 'X';
-        break;
+        if (grid[2][0] == 'X' || grid[2][0] == 'O') {
+            cout << "The QUAD is taken. Input your choice again." << endl;
+            break;
+        }
+        else {
+            grid[2][0] = player; 
+            return true; 
+        }
     case 8:
-        grid[2][1] = 'X';
-        break;
+        if (grid[2][1] == 'X' || grid[2][1] == 'O') {
+            cout << "The QUAD is taken. Input your choice again." << endl;
+            break;
+        }
+        else {
+            grid[2][1] = player; 
+            return true;
+        }
     case 9:
-        grid[2][2] = 'X';
-        break;
+        if (grid[2][2] == 'X' || grid[2][2] == 'O') {
+            cout << "The QUAD is taken. Input your choice again." << endl;
+            break;
+        }
+        else {
+            grid[2][2] = player; 
+            return true;
+        }
 
     default:
-        break;
+        if (choice > 9 || choice == 0) {
+            cout << "Your number is not good. Try again with Input [1-9] Player ..." << endl;
+            break;
+        }
+    
     }
+    return false;
 }
 
 // function is designed to ask user for choice and return this choice
 int userInput(int choice) {
+
     cout << "Please enter your Grid Number: " << endl;
     cin >> choice;
 
+    if (!cin) {
+        cout << "Choice was not an int..." << endl;
+    }
+
     return choice;
+
 }
 
-
 // function is designed to change the player, default is X first. 
-void chngPlayer(char player) {
+char chngPlayer(char player) {
 
     if (player == 'X') {
         player = 'O';
         }
-    else 
+    else if (player == 'O') 
         player = 'X';
-
+    
+    return player;
 }
 
-void checkUserChoice(int choice, char grid[][3]) {
+// function to check if the player has won.  
+bool winCheck(char player, char grid[][3]) {
 
     int i, j;
-    for (i=0; i < 2; i++) {
-
-        for (j=0; j < 2; j++) {
-
-            if (choice == grid[i][j]) {
-            // ask the user to change the choice again
-                userInput(choice);
-                break;
-            }
-
-            else
-                break;
+    if (grid[0][0] == player && grid[0][1] == player && grid[0][2] == player) {
+        cout << "Congrats! Player " << player << ", YOU WIN!!" << endl;
+        return true;
         }
-    }
+
+    else
+        return false;
+
 }

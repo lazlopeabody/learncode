@@ -11,41 +11,17 @@ int main() {
 
     board(grid);
 
-    while (endgame < 8) {
+    for (endgame; endgame < 8; endgame++) {
 
-        choice = userInput(choice);
-        
-        while (choice != 0) {
-
-            if (grid[0][0] == 'X' || grid[0][0] == 'O') {
-                cout << "Quad Set, Try Input Again." << endl;
-                break;
-            }
-
-            else if (grid[0][0] == player && grid[0][1] == player && grid[0][2] == player) {
-                cout << "Player " << player << " WINS!!" << endl;
-            }
-
-            else {
-                grid[0][0] = player; 
-                board(grid);
-
-                if (player == 'X') {
-                    player = 'O';
-                }
-                else
-                    player = 'X';
-
-            }
-
-            cout << player << endl; 
-
-        if (endgame != 8) {
-            endgame += 1;
-            }
-        else 
-            cout << "Game is Draw" << endl;
+        bool gc = gridCheck(player, userInput(choice), grid);
+        cout << endgame << " - " << gc << " Player " << player << endl;
+        while (gc == 0)
             break;
-        }
-    }
+
+        winCheck(player, grid);
+        player = chngPlayer(player);
+        board(grid);
+
+    } 
+        
 }
