@@ -28,8 +28,9 @@ char board(char grid[][3]) {
 // function checks if qaudrant is taken, if not will set the qaudtrant
 // parameters are the player symbol, player choice,  
 // and the tictactoe array 
-bool gridCheck(char player, int choice, char grid[][3]) 
+char gridCheck(char player, int choice, char grid[][3]) 
 {
+    char plyr = player;
 
     switch (choice)
     {
@@ -40,8 +41,13 @@ bool gridCheck(char player, int choice, char grid[][3])
         }
         else {
             grid[0][0] = player;
-            return true;
-        }
+
+            if (plyr == 'X')
+                plyr == 'O';
+            else 
+                plyr == 'X';
+            break;
+            }
     case 2:
         if (grid[0][1] == 'X' || grid[0][1] == 'O') {
             cout << "The QUAD is taken. Input your choice again." << endl;
@@ -49,8 +55,12 @@ bool gridCheck(char player, int choice, char grid[][3])
         }
         else {
             grid[0][1] = player; 
-            return true;
-        } 
+            if (plyr == 'X')
+                plyr == 'O';
+            else 
+                plyr == 'X';
+            break;
+            } 
     case 3:
         if (grid[0][2] == 'X' || grid[0][2] == 'O') {
             cout << "The QUAD is taken. Input your choice again." << endl;
@@ -58,8 +68,12 @@ bool gridCheck(char player, int choice, char grid[][3])
         }
         else {
             grid[0][2] = player; 
-            return true;
-        }
+            if (plyr == 'X')
+                plyr == 'O';
+            else 
+                plyr == 'X';
+            break;
+            }
     case 4:
         if (grid[1][0] == 'X' || grid[1][0] == 'O') {
             cout << "The QUAD is taken. Input your choice again." << endl;
@@ -67,7 +81,11 @@ bool gridCheck(char player, int choice, char grid[][3])
         }
         else {
             grid[1][0] = player; 
-            return true; 
+            if (plyr == 'X')
+                plyr == 'O';
+            else 
+                plyr == 'X';
+            break;
         }
     case 5:
         if (grid[1][1] == 'X' || grid[1][1] == 'O') {
@@ -76,7 +94,11 @@ bool gridCheck(char player, int choice, char grid[][3])
         }
         else {
             grid[1][1] = player; 
-            return true; 
+            if (plyr == 'X')
+                plyr == 'O';
+            else 
+                plyr == 'X';
+            break;
         }
     case 6:
         if (grid[1][2] == 'X' || grid[1][2] == 'O') {
@@ -85,7 +107,11 @@ bool gridCheck(char player, int choice, char grid[][3])
         }
         else {
             grid[1][2] = player; 
-            return true;
+            if (plyr == 'X')
+                plyr == 'O';
+            else 
+                plyr == 'X';
+            break;
         }
     case 7:
         if (grid[2][0] == 'X' || grid[2][0] == 'O') {
@@ -94,7 +120,11 @@ bool gridCheck(char player, int choice, char grid[][3])
         }
         else {
             grid[2][0] = player; 
-            return true; 
+            if (plyr == 'X')
+                plyr == 'O';
+            else 
+                plyr == 'X';
+            break;
         }
     case 8:
         if (grid[2][1] == 'X' || grid[2][1] == 'O') {
@@ -103,7 +133,11 @@ bool gridCheck(char player, int choice, char grid[][3])
         }
         else {
             grid[2][1] = player; 
-            return true;
+            if (plyr == 'X')
+                plyr == 'O';
+            else 
+                plyr == 'X';
+            break;
         }
     case 9:
         if (grid[2][2] == 'X' || grid[2][2] == 'O') {
@@ -112,7 +146,11 @@ bool gridCheck(char player, int choice, char grid[][3])
         }
         else {
             grid[2][2] = player; 
-            return true;
+            if (plyr == 'X')
+                plyr == 'O';
+            else 
+                plyr == 'X';
+            break; 
         }
 
     default:
@@ -122,7 +160,7 @@ bool gridCheck(char player, int choice, char grid[][3])
         }
     
     }
-    return false;
+    return plyr;
 }
 
 // function is designed to ask user for choice and return this choice
