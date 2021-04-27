@@ -43,9 +43,9 @@ char gridCheck(char player, int choice, char grid[][3])
             grid[0][0] = player;
 
             if (plyr == 'X')
-                plyr == 'O';
+                plyr = 'O';
             else 
-                plyr == 'X';
+                plyr = 'X';
             break;
             }
     case 2:
@@ -56,9 +56,9 @@ char gridCheck(char player, int choice, char grid[][3])
         else {
             grid[0][1] = player; 
             if (plyr == 'X')
-                plyr == 'O';
+                plyr = 'O';
             else 
-                plyr == 'X';
+                plyr = 'X';
             break;
             } 
     case 3:
@@ -69,9 +69,9 @@ char gridCheck(char player, int choice, char grid[][3])
         else {
             grid[0][2] = player; 
             if (plyr == 'X')
-                plyr == 'O';
+                plyr = 'O';
             else 
-                plyr == 'X';
+                plyr = 'X';
             break;
             }
     case 4:
@@ -82,9 +82,9 @@ char gridCheck(char player, int choice, char grid[][3])
         else {
             grid[1][0] = player; 
             if (plyr == 'X')
-                plyr == 'O';
+                plyr = 'O';
             else 
-                plyr == 'X';
+                plyr = 'X';
             break;
         }
     case 5:
@@ -95,9 +95,9 @@ char gridCheck(char player, int choice, char grid[][3])
         else {
             grid[1][1] = player; 
             if (plyr == 'X')
-                plyr == 'O';
+                plyr = 'O';
             else 
-                plyr == 'X';
+                plyr = 'X';
             break;
         }
     case 6:
@@ -108,9 +108,9 @@ char gridCheck(char player, int choice, char grid[][3])
         else {
             grid[1][2] = player; 
             if (plyr == 'X')
-                plyr == 'O';
+                plyr = 'O';
             else 
-                plyr == 'X';
+                plyr = 'X';
             break;
         }
     case 7:
@@ -121,9 +121,9 @@ char gridCheck(char player, int choice, char grid[][3])
         else {
             grid[2][0] = player; 
             if (plyr == 'X')
-                plyr == 'O';
+                plyr = 'O';
             else 
-                plyr == 'X';
+                plyr = 'X';
             break;
         }
     case 8:
@@ -134,9 +134,9 @@ char gridCheck(char player, int choice, char grid[][3])
         else {
             grid[2][1] = player; 
             if (plyr == 'X')
-                plyr == 'O';
+                plyr = 'O';
             else 
-                plyr == 'X';
+                plyr = 'X';
             break;
         }
     case 9:
@@ -147,9 +147,9 @@ char gridCheck(char player, int choice, char grid[][3])
         else {
             grid[2][2] = player; 
             if (plyr == 'X')
-                plyr == 'O';
+                plyr = 'O';
             else 
-                plyr == 'X';
+                plyr = 'X';
             break; 
         }
 
@@ -165,13 +165,19 @@ char gridCheck(char player, int choice, char grid[][3])
 
 // function is designed to ask user for choice and return this choice
 int userInput(int choice) {
+    bool valid = false;
 
-    cout << "Please enter your Grid Number: " << endl;
-    cin >> choice;
+    do {
+        cout << "Please enter your Grid Number: " << endl;
+        cin >> choice;
 
-    if (!cin) {
-        cout << "Choice was not an int..." << endl;
-    }
+        if (!cin) {
+            cout << "Choice was not an int..." << endl;
+            break;
+        }
+        else
+            valid = true; 
+    } while (!valid);
 
     return choice;
 
