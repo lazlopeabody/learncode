@@ -1,0 +1,7 @@
+{
+    "service_name":"tidal",
+    "service_type":"music",
+    "service_cost":12.99,
+    "service_billing_period":"monthly",
+    "service_status": "active"
+}
