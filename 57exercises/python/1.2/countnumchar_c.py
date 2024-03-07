@@ -12,10 +12,10 @@ class CountNumCharApp:
 
     def show_input(self):
         user_input = self.entry.get()
-        while user_input == "" or user_input == None:
+        if user_input == "" or user_input == None:
             messagebox.showinfo("Error", "Please enter a valid input.")
-            user_input = self.entry.get()
-        messagebox.showinfo("Result", f"{user_input} has {len(user_input)} characters.")
+        else:
+            messagebox.showinfo("Result", f"{user_input} has {len(user_input)} characters.")
 
 def main():
     root = tk.Tk()
