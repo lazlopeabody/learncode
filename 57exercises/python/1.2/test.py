@@ -1,4 +1,5 @@
 import unittest
+import tkinter as tk
 from unittest.mock import patch
 import countnumchar_b
 
@@ -18,6 +19,9 @@ class TestMain(unittest.TestCase):
                 mock_input.return_value = input_value
                 countnumchar_b.main()
                 mock_print.assert_called_with(expected_output)
+
+class TestMainApp(unittest.TestCase):
+    @path('tkinter.Tk')
 
 if __name__ == "__main__":
     unittest.main()
